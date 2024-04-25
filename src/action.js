@@ -43,7 +43,8 @@ async function run() {
 
 		  	const url = `https://${domain}/api/v1/site`
 
-			console.log(`Creating InstaWP site from template ${INSTAWP_TEMPLATE_SLUG}`)
+			console.log(`Creating InstaWP site from template ${INSTAWP_TEMPLATE_SLUG}`);
+			console.log(`InstaWP utl ${url}`);
 
 			let data = { "pr_num": pull_request.number, "template_slug" : INSTAWP_TEMPLATE_SLUG, "git_deployment" : true, repo_id: REPO_ID };
 
@@ -51,7 +52,7 @@ async function run() {
 				data['override_url'] = ARTIFACT_URL
 			}
 
-			// console.log(data);
+			console.log(data);
 
 			const config = {
 		        method: 'POST',
@@ -65,7 +66,6 @@ async function run() {
 		    const response = await fetch(url, config)
 
 			const results = await response.json();
-
 			if(results.data == undefined) {
 				var msg = "An error has occurred: Please check if you have permissions or limits might have been exhausted."
 				if(results.message)
@@ -76,7 +76,7 @@ async function run() {
 				return;
 			}
 
-			// console.log(results.data);
+			console.log(results.data);
 
 			const results_url = results.data.wp_url;
 			const results_site_id = results.data.id;
