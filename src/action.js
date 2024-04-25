@@ -44,7 +44,7 @@ async function run() {
 		  	const url = `https://${domain}/api/v1/site`
 
 			console.log(`Creating InstaWP site from template ${INSTAWP_TEMPLATE_SLUG}`);
-			console.log(`InstaWP utl ${url}`);
+			console.log(`InstaWP url ${url}`);
 
 			let data = { "pr_num": pull_request.number, "template_slug" : INSTAWP_TEMPLATE_SLUG, "git_deployment" : true, repo_id: REPO_ID };
 
