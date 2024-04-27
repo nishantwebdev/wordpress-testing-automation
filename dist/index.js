@@ -33849,7 +33849,7 @@ async function run() {
 		        body: JSON.stringify(data)
 		    }
 		    const response = await node_fetch__WEBPACK_IMPORTED_MODULE_0___default()(url, config)
-
+			console.log(config,response);
 			const results = await response.json();
 			if(results.data == undefined) {
 				var msg = "An error has occurred: Please check if you have permissions or limits might have been exhausted."
