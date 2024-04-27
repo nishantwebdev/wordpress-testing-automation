@@ -52,7 +52,7 @@ async function run() {
 				data['override_url'] = ARTIFACT_URL
 			}
 
-			console.log(data);
+			console.log('data: ',data);
 
 			const config = {
 		        method: 'POST',
@@ -63,8 +63,9 @@ async function run() {
 		        },
 		        body: JSON.stringify(data)
 		    }
+			console.log('config: ',config);
 		    const response = await fetch(url, config)
-			console.log(config,response);
+			console.log(response);
 			const results = await response.json();
 			if(results.data == undefined) {
 				var msg = "An error has occurred: Please check if you have permissions or limits might have been exhausted."
